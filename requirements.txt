@@ -1,0 +1,4 @@
+# Runtime dependencies for the Vercel Python function (backend/requirements.txt adds dev/test tools)
+fastapi>=0.115.6
+pandas>=2.3.3
+tzdata

@@ -1,0 +1,72 @@
+:root {
+  --bg: #eef2f4;
+  --panel: #f8fafb;
+  --ink: #16242c;
+  --muted: #55656d;
+  --rule: #d0d9dd;
+  --wind: #1f7a8c;
+  --short: #b4432c;
+  --long: #2f6fa3;
+  --focus: #0b5cad;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; font: 400 16px/1.55 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
+.page { max-width: 1080px; margin: 0 auto; padding: 32px 20px 56px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.masthead h1 { font: 500 clamp(1.7rem, 3.2vw, 2.35rem)/1.15 var(--serif); margin: 0 0 8px; max-width: 24em; letter-spacing: -0.01em; }
+.sub { margin: 0 0 24px; color: var(--muted); max-width: 62ch; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 20px 32px; padding: 14px 0; border-block: 1px solid var(--rule); margin-bottom: 28px;
+  position: sticky; top: 0; background: var(--bg); z-index: 5; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: .85rem; color: var(--muted); }
+.date-row { display: flex; gap: 6px; }
+input, select, button { font: inherit; color: inherit; }
+input[type="date"], select { padding: 7px 10px; border: 1px solid #9aa9b0; border-radius: 4px; background: #fff; min-height: 40px; }
+.date-row button { width: 40px; min-height: 40px; border: 1px solid #9aa9b0; background: #fff; border-radius: 4px; cursor: pointer; font-size: 1.2rem; line-height: 1; }
+.date-row button:disabled { opacity: .4; cursor: not-allowed; }
+
+section { margin-bottom: 48px; }
+h2 { font: 500 1.5rem/1.25 var(--serif); margin: 0 0 8px; }
+h3 { font: 600 1rem/1.3 var(--sans); margin: 0 0 6px; }
+.lede { color: var(--muted); max-width: 66ch; margin: 0 0 16px; }
+
+.statement { max-width: 68ch; margin-bottom: 20px; }
+.headline { font: 400 clamp(1.25rem, 2.2vw, 1.6rem)/1.4 var(--serif); margin: 0 0 12px; }
+.headline b, .plan b, .outturn b { font-weight: 600; }
+.plan, .outturn { margin: 0 0 8px; }
+.plan { border-left: 3px solid var(--wind); padding-left: 12px; }
+.meta { color: var(--muted); font-size: .85rem; margin: 8px 0 0; }
+
+.chart-figure { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 12px 10px; }
+.chart-figure figcaption { color: var(--muted); font-size: .85rem; margin-top: 6px; padding-inline: 4px; }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.tip { background: #fff; border: 1px solid var(--rule); padding: 8px 10px; border-radius: 4px; font-size: .9rem; box-shadow: 0 2px 8px rgba(22,36,44,.12); }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { padding: 9px 14px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th { font-weight: 600; font-size: .85rem; color: var(--muted); }
+tbody th { font-weight: 500; }
+tfoot td { color: var(--muted); font-size: .85rem; border-bottom: 0; }
+.r { text-align: right; }
+.num { font-weight: 500; white-space: nowrap; }
+.desc { color: var(--muted); max-width: 52ch; }
+tr.sel { background: #e1eef1; }
+td.bars, th.bars { width: 22%; padding-inline: 4px; }
+td.bars span { display: block; height: 10px; background: var(--wind); border-radius: 2px; }
+button.link { background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+button.link[aria-pressed="true"] { text-decoration: none; font-weight: 600; }
+
+.notice { color: var(--muted); padding: 12px 0; }
+.notice.error { color: var(--short); font-weight: 500; }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--rule); padding-top: 16px; max-width: 70ch; }
+
+@media (max-width: 560px) { .page { padding-inline: 14px; } th, td { padding: 8px 10px; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (max-width: 700px) { .controls { position: static; } }
