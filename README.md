@@ -52,6 +52,8 @@ React 18 + Vite + Recharts (frontend), Python FastAPI + pandas (backend), Docker
 docker compose up --build        # app at http://localhost:8080
 ```
 
+Docker build and startup are verified on every push by a GitHub Actions workflow (`.github/workflows/docker.yml`, see the Actions tab).
+
 ### Option 2: run locally
 
 Backend (terminal 1):
