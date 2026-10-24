@@ -1,6 +1,6 @@
 # Wind forecast decision portal
 
-## Run order (on your machine; needs internet access to Elexon)
+## Run order
 
 ```bash
 cd backend
@@ -28,7 +28,7 @@ uvicorn app.main:app --reload      # 4. API at http://localhost:8000/docs
 
 ## AI usage
 
-Built with assistance from Claude (Anthropic).
+Built with assistance from Claude.
 
 ## Frontend (React + Vite + Recharts)
 
@@ -42,7 +42,7 @@ cd frontend && npm install && npm run dev   # http://localhost:5173, proxies /ap
 docker compose up --build   # app at http://localhost:8080
 ```
 
-## Data notes (confirmed from the live API)
+## Data notes
 
 - WINDFOR forecasts are hourly (`startTime` step 60 min) and revised roughly every 3 hours; FUELHH actuals are half-hourly.
   Accuracy is measured at the hourly timestamps where both exist (about 24 points per delivery day).
