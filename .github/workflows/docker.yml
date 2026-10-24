@@ -1,0 +1,17 @@
+name: docker-check
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and start containers
+        run: docker compose up --build -d
+      - name: Wait and check the app responds
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/api/health; then exit 0; fi
+            sleep 3
+          done
+          docker compose logs
+          exit 1
